@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const homeRoutes = require('./routers/home');
 
 const app = express();
-// const port = process.env.port || 8080;
+const port = process.env.port || 8080;
 
 mongoos.connect("mongodb://localhost:27017/studentdetails", {useNewUrlParser : true})
 const db = mongoos.connection;
@@ -28,6 +28,6 @@ app.use(bodyParser.json())
 
 app.use('/' , homeRoutes)
 
-app.listen(5000, () => {       // our server is listening on 5000 port
-    console.log("Server has started and listening on 5000 port");
+app.listen(port, () => {       
+    console.log("Server has started and listening on  port");
 });
